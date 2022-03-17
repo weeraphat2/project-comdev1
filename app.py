@@ -13,22 +13,33 @@ def login():
 
 @app.route('/home', methods=['POST'])
 def home():
-    if request.method == 'POST':
-        session['email'] = request.form['email']
     return render_template("home.html")
+
+
+@app.route('/signup',methods=['GET', 'POST'])
+def signup():
+    if request.method =='POST':
+        email = request.form.get('email')
+        name = request.form.get('name')
+        password1 = request.form.get('password1')
+        password2 = request.form.get('password2')
+        
+        if len(email) < 7:
+            flash('Email incomplete please try again.' ,category='error')
+        elif len(name) < 1:
+            flash('Enter your frist name  please try again.', category='error')
+        elif password1 != password2:
+            flash('Password not match please try again.', category='error' )
+        elif len(password1) < 5:
+            flash('Your password not safe please try again.', category='error' )
+        else:
+            flash('Signup success.', category='success' )
+
+    return render_template("signup.html")
 
 @app.route('/logout')
 def logout():
-    if 'email' in session:
-        session.pop('email', None)
-        return render_template("index.html")
-    else:
-        return '<div class="alert alert-danger" role="alert"> A simple danger alert—check it out!</div>'
-
-@app.route('/signup', methods=['POST','GET'])
-def signup():
-        return render_template("home.html")
-
+    return render_template("/")
 
 if __name__ == "__main__" :
     app.run(debug='true')
