@@ -1,24 +1,31 @@
-<form method="POST" action="/"></form>
 <head>  
 <meta name=viewport content="width=device-width, initial-scale=1"></head>
-    <div class="loginFrm">
-        <form action="" class="form">
-          <h1 class="title">Login Page</h1>
-    
-          <div class="inputContainer">
-            <input type="text" class="input" placeholder="a">
-            <label for="" class="label">Username</label>
-          </div>
-    
-          <div class="inputContainer">
-            <input type="text" class="input" placeholder="a">
-            <label for="" class="label">Password</label>
-          </div>
-    
-          <input type="submit" class="submitBtn" value="Login">
 
-        </form>
+<div class="container-lg" style="margin-left: 25%; margin-right: 25%; margin-bottom: 10px;">
+  <h1>Login</h1>
+  <form method="POST" action="/home">
+      <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" 
+          class="form-control" 
+          id="email" 
+          placeholder="name@example.com" 
+          name="email" 
+          aria-describedby="emailHelp" 
+          style="width: 60%;">
       </div>
+      <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" 
+          class="form-control" 
+          id="password" 
+          placeholder="password" 
+          name="password"  
+          style="width: 60%;">
+      </div>
+      <button type="submit" class="btn btn-primary" href="/home">Submit</button>
+    </form>
+  </div>
       <style type="text/css">
             @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
